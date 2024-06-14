@@ -1,0 +1,614 @@
+/* Container */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(71, 69, 69);
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 3rem;
+  width: 100%;
+  height: 100%;
+}
+
+.containerHotel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(71, 69, 69);
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  width: 100%;
+  height: 130%;
+}
+
+.title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.titleHotel {
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+}
+
+.espace {
+  margin-bottom: 100px;
+}
+
+/* Form */
+.form, .forme, .formInfo, .formeHotel {
+  margin: auto;
+  background-color: white;
+  color: black;
+}
+
+.form {
+  width: 300px;
+  height: 350px;
+}
+
+.forme {
+  width: 320px;
+  height: 430px;
+}
+
+.formInfo {
+  width: 370px;
+  height: 370px;
+}
+
+.formeHotel {
+  width: 750px;
+  height: 600px;
+  margin-top: 3rem;
+  border-radius: 5px;
+}
+
+.input, .inputHotel {
+  padding: 0.5rem;
+  margin-left: 15px;
+  margin-bottom: 1.2rem;
+  width: 80%;
+}
+
+.inputHotel::placeholder {
+  text-align: left;
+}
+
+.label {
+  margin-left: 15px;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-left: 15px;
+}
+
+.checkbox {
+  margin-right: 0.5rem;
+}
+
+/* Buttons */
+.button, .buttone, .buttonInfo, .buttonHotel {
+  background-color: rgb(71, 69, 69);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: auto;
+}
+
+.button {
+  padding: 0.7rem 5rem;
+  margin-bottom: 2.5rem;
+  margin-left: 25px;
+}
+
+.buttone {
+  padding: 1rem 6rem;
+  margin-bottom: 2.5rem;
+  margin-left: 25px;
+}
+
+.buttonInfo {
+  padding: 1rem 8rem;
+  margin-bottom: 2.5rem;
+  margin-left: 25px;
+}
+
+.buttonHotel {
+  padding: 0.7rem 4rem;
+  margin-top: 30px;
+}
+
+/* Links */
+.mtp, .mtdp, .inscrire {
+  color: yellow;
+  text-align: center;
+  text-decoration: none;
+}
+
+.compte {
+  color: white;
+  text-align: center;
+}
+
+/* Logo */
+.logoo, .log {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoo {
+  margin-bottom: -2rem;
+}
+
+.log {
+  margin-bottom: -3rem;
+}
+
+.logo, .logos {
+  margin-right: 25px;
+}
+
+.logos {
+  margin-right: 15px;
+}
+
+/* Retour and Info */
+.retour, .info {
+  text-align: center;
+}
+
+/* Ligne */
+.ligne1, .ligne2, .ligne3 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.photoInputLabel {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #1d1b1b;
+  border-radius: 5px;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.champ {
+  flex: 1;
+  margin-right: 30px;
+  max-width: calc(50% - 5px);
+}
+
+.photoInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.photoIcon {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.photoFileInput {
+  display: none;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  height: 100vh;
+  width: 260px;
+  background-color: rgb(71, 69, 69);
+  padding-top: -50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar p {
+  color: #fff;
+  margin-bottom: 5px;
+  margin-left: 27px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar a img {
+  margin-right: 10px;
+}
+
+.sidebar a:hover {
+  background-color: #fff;
+  color: #000;
+  padding: 12px;
+}
+
+.sidebar a:hover img {
+  filter: invert(100%);
+}
+
+.activeMenu {
+  margin-left: 20px;
+}
+
+/* Main Content */
+.mainContent {
+  margin-left: 260px;
+  padding: 20px;
+  width: calc(100% - 260px);
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.5cm;
+  color: black;
+  padding: 0 20px;
+  width: calc(100% - 40px);
+}
+
+.dashboardTitle h2 {
+  font-family: Roboto;
+  font-size: 26.66px;
+  font-weight: 500;
+  line-height: 74.66px;
+  text-align: left;
+}
+
+.rightContent {
+  display: flex;
+  align-items: center;
+}
+
+.searchBar {
+  margin-right: 50px;
+  flex: 1;
+}
+
+.searchBar input {
+  padding: 8px 12px;
+  border: 1px solid #352f2f;
+  border-radius: 10px;
+}
+
+.notificationIcon {
+  position: relative;
+  margin-right: 30px;
+}
+
+.notificationIcon img {
+  width: 25px;
+  height: 25px;
+}
+
+.notificationCount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.profile {
+  position: relative;
+  margin-right: 30px;
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.onlineIndicator {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+  background-color: green;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.logout {
+  margin-right: 30px;
+}
+
+.logout img {
+  width: 25px;
+  height: 25px;
+}
+
+/* Content Wrapper */
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.content {
+  margin-left: 20px;
+  margin-top: -30px;
+}
+
+.bienvenue {
+  font-family: roboto;
+  font-size: 29px;
+}
+
+.lorem {
+  margin-top: -30px;
+}
+.loreme {
+  margin-top: 50px;
+}
+
+.analytics {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: -30px;
+}
+
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px; /* Ajoutez un espacement au-dessus de la grille pour séparer les cartes du texte */
+}
+
+.card {
+  display: flex; 
+  align-items: center;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  min-width: 6cm; /* Largeur minimale de 4 cm */
+  min-height: 1cm; /* Hauteur minimale de 1.5 cm */
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card div {
+  display: flex; 
+  align-items: center; 
+}
+
+.card p {
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ecf0f1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #ecf0f1;
+}
+
+.titles {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.rightContent {
+  display: flex;
+  align-items: center;
+}
+
+.searchBar input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.notification {
+  position: relative;
+  margin-left: 20px;
+}
+
+.notification img {
+  width: 20px;
+  height: 20px;
+}
+
+.notificationCount {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: O.5px;
+  font-size: 12px;
+}
+
+.profile {
+  margin-left: 20px;
+  position: relative;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.onlineIndicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: green;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.logout img {
+  width: 20px;
+  height: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.contentWrapperx {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.gridx {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr); 
+}
+
+.cardx {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  background: white;
+}
+
+.cardx:hover {
+  transform: scale(1.05);
+}
+
+.imagex {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.infox {
+  padding: 16px;
+}
+
+.infox h2 {
+  margin: 0;
+  font-size: 1.25em;
+  color: #333;
+}
+
+.infox p {
+  margin: 8px 0;
+  color: #777;
+}
+
+.contentx {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hotelCountWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.hotelCount {
+  margin-right: 20px;
+}
+
+.createHotelButton {
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 750px;
+}
+
+.createHotelButton:hover {
+  background-color: #f0f0f0;
+}
+
+.createHotelButton img {
+  margin-left: 5px;
+}
+
+.actions {
+  display: flex;
+  gap: 140px; /* Espacement entre les boutons */
+}
+
