@@ -12,7 +12,13 @@ export default function ListeHotel() {
       try {
         const response = await fetch('http://localhost:3000/api/users/listeHotel');
         const data = await response.json();
-        setHotels(data);
+
+        // Check if data is an array
+        if (Array.isArray(data)) {
+          setHotels(data);
+        } else {
+          console.error('Fetched data is not an array:', data);
+        }
       } catch (error) {
         console.error('Erreur lors de la récupération des hôtels :', error);
       }
@@ -66,25 +72,29 @@ export default function ListeHotel() {
             </a>
           </div>
         </div>
-        <div className={styles.contentWrapperx}>
-          <div className={styles.gridx}>
-            {hotels.map((hotel) => (
-              <div key={hotel._id} className={styles.cardx}>
-                <Image
-                src={`http://localhost:3000/${hotel.photo}`}
-                alt={`Image de ${hotel.nom}`}
-                width={300}
-                height={200}
-/>
-                <div className={styles.infox}>
-                  <p>{hotel.adresse}</p>
-                  <h2>{hotel.nom}</h2>
-                  <p>{hotel.prix} {hotel.devise} par nuit</p>
+        {hotels.length === 0 ? (
+          <p>Chargement des hôtels en cours...</p>
+        ) : (
+          <div className={styles.contentWrapperx}>
+            <div className={styles.gridx}>
+              {hotels.map((hotel) => (
+                <div key={hotel._id} className={styles.cardx}>
+                  <Image
+                    src={`http://localhost:3000/${hotel.photo}`}
+                    alt={`Image de ${hotel.nom}`}
+                    width={300}
+                    height={200}
+                  />
+                  <div className={styles.infox}>
+                    <p>{hotel.adresse}</p>
+                    <h2>{hotel.nom}</h2>
+                    <p>{hotel.prix} {hotel.devise} par nuit</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
