@@ -6,14 +6,19 @@ import styles from '../../app/Home.module.css';
 
 export default function ListeHotel() {
   const [hotels, setHotels] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchHotels = async () => {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/listeHotel`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
 
-        // Check if data is an array
         if (Array.isArray(data)) {
           setHotels(data);
         } else {
@@ -21,6 +26,7 @@ export default function ListeHotel() {
         }
       } catch (error) {
         console.error('Erreur lors de la récupération des hôtels :', error);
+        setError('Erreur lors de la récupération des hôtels');
       }
     };
 
@@ -72,7 +78,8 @@ export default function ListeHotel() {
             </a>
           </div>
         </div>
-        {hotels.length === 0 ? (
+        {error && <p className={styles.error}>{error}</p>}
+        {hotels.length === 0 && !error ? (
           <p>Chargement des hôtels en cours...</p>
         ) : (
           <div className={styles.contentWrapperx}>
@@ -80,7 +87,7 @@ export default function ListeHotel() {
               {hotels.map((hotel) => (
                 <div key={hotel._id} className={styles.cardx}>
                   <Image
-                    src={`http://localhost:3000/${hotel.photo}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}/${hotel.photo}`}
                     alt={`Image de ${hotel.nom}`}
                     width={300}
                     height={200}
