@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost', 'red-team-hb6hk7c1a-wallys-projects-1e1cb157.vercel.app'],
+    domains: ['localhost', 'red-team-product.vercel.app'],
   },
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
