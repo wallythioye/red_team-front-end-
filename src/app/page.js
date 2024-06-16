@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { fetchData } from '../../lib/api';
 import styles from './Home.module.css';
+
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -17,7 +17,7 @@ export default function Login() {
     setError(''); // Réinitialise l'erreur à chaque tentative de soumission
 
     try {
-      const response = await fetchData('http://localhost:3000/api/users/login', {
+      const response = await fetch('http://localhost:3000/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
