@@ -45,7 +45,7 @@ export default function AjoutHotel() {
     console.log('Submitting form data:', formData); // Debugging log
 
     try {
-      const response = await fetch('http://localhost:3000/api/users/ajoutHotel', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/ajoutHotel`, {
         method: 'POST',
         body: form
       });

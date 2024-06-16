@@ -10,7 +10,7 @@ export default function ListeHotel() {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/users/listeHotel');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/listeHotel`);
         const data = await response.json();
 
         // Check if data is an array
