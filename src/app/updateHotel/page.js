@@ -1,51 +1,92 @@
 "use client";
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import styles from '../../app/Home.module.css';
 
 export default function ModifierHotel() {
-  const [hotelId, setHotelId] = useState(null); // État pour stocker l'ID de l'hôtel à modifier
-  const [hotelData, setHotelData] = useState(null); // État pour stocker les données de l'hôtel
+  const router = useRouter();
+  const { id } = router.query || {};
+  const [hotelData, setHotelData] = useState(null);
+  const [formData, setFormData] = useState({
+    nom: '',
+    adresse: '',
+    email: '',
+    telephone: '',
+    prix: 0,
+    devise: 'XOF',
+    photo: ''
+  });
 
   useEffect(() => {
-    if (hotelId) {
-      fetchHotelData(hotelId); // Appel à fetchHotelData lorsque hotelId est défini
+    if (id) {
+      console.log('Fetching hotel data for id:', id); // Debugging log
+      fetchHotelData(id);
     }
-  }, [hotelId]); // Déclenché à chaque fois que hotelId change
+  }, [id]);
 
-  const fetchHotelData = async (id) => {
+  const fetchHotelData = async (_id) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/users/hotels/${id}`); // Remplacez par votre API endpoint réel
+      const response = await fetch(`http://localhost:3000/api/users/hotels/${_id}`);
+      console.log('Response from server:', response); // Debugging log
       if (!response.ok) {
         throw new Error('Failed to fetch hotel data');
       }
       const data = await response.json();
-      setHotelData(data); // Met à jour les données de l'hôtel dans l'état
+      console.log('Hotel data:', data); // Debugging log
+      setHotelData(data);
+      setFormData({
+        nom: data.nom,
+        adresse: data.adresse,
+        email: data.email,
+        telephone: data.telephone,
+        prix: data.prix,
+        devise: data.devise,
+        photo: '' // photo is handled separately
+      });
     } catch (error) {
       console.error('Error fetching hotel data:', error);
     }
   };
 
-  const handleEditClick = (id) => {
-    setHotelId(id); // Met à jour hotelId lors du clic sur l'icône de modification
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
   };
 
-  const handleSave = async (e) => {
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFormData({ ...formData, photo: file });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Logique pour sauvegarder les modifications de l'hôtel
-    console.log('Hotel data to be saved:', hotelData);
+    try {
+      const formDataToSend = new FormData();
+      for (const key in formData) {
+        formDataToSend.append(key, formData[key]);
+      }
+      const response = await fetch(`http://localhost:3000/api/users/updateHotels/${id}`, {
+        method: 'PUT',
+        body: formDataToSend,
+      });
+      if (!response.ok) {
+        throw new Error('Failed to update hotel');
+      }
+      const updatedHotel = await response.json();
+      setHotelData(updatedHotel);
+      router.push('/listeHotel');
+    } catch (error) {
+      console.error('Error updating hotel:', error);
+    }
   };
-
-  if (!hotelData) {
-    return <p>Loading...</p>; // Affiche un message de chargement tant que les données de l'hôtel ne sont pas disponibles
-  }
 
   return (
     <div className={styles.containerHotel}>
       <form className={styles.formeHotel} onSubmit={handleSubmit}>
         <p className={styles.titleHotel}>Modifier hôtel</p>
-
+        
         <div className={styles.ligne1}>
           <div className={styles.champ}>
             <label htmlFor="nom" className={styles.label}>Nom hôtel</label><br/><br/>

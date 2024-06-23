@@ -1,17 +1,19 @@
 "use client";
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import styles from '../../app/Home.module.css';
 
 export default function ListeHotel() {
   const [hotels, setHotels] = useState([]);
   const [error, setError] = useState('');
+  const router = useRouter(); // Initialize useRouter
 
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/listeHotel`);
+        const response = await fetch(`http://localhost:3000/api/users/listeHotel`);
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -32,6 +34,32 @@ export default function ListeHotel() {
 
     fetchHotels();
   }, []);
+
+  const deleteHotel = async (hotelId) => {
+    if (!window.confirm('Êtes vous sûr de vouloir supprimer cet hotel?')) {
+      return; // If the user cancels, do nothing
+    }
+
+    try {
+      const response = await fetch(`http://localhost:3000/api/users/hotels/${hotelId}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete hotel');
+      }
+
+      // Remove the deleted hotel from the state
+      setHotels(hotels.filter(hotel => hotel._id !== hotelId));
+    } catch (error) {
+      console.error('Error deleting hotel:', error);
+      setError('Error deleting hotel');
+    }
+  };
+
+  const handleEditClick = (hotelId) => {
+    router.push(`/updateHotel?id=${hotelId}`); // Use router to navigate to the edit page with the hotel ID
+  };
 
   return (
     <div className={styles.containerDashboard}>
@@ -87,7 +115,7 @@ export default function ListeHotel() {
               {hotels.map((hotel) => (
                 <div key={hotel._id} className={styles.cardx}>
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_API_URL}/${hotel.photo}`}
+                    src={`http://localhost:3000/${hotel.photo}`}
                     alt={`Image de ${hotel.nom}`}
                     width={300}
                     height={200}
@@ -96,6 +124,8 @@ export default function ListeHotel() {
                     <p>{hotel.adresse}</p>
                     <h2>{hotel.nom}</h2>
                     <p>{hotel.prix} {hotel.devise} par nuit</p>
+                    <button onClick={() => deleteHotel(hotel._id)}>Delete</button>
+                    <button onClick={() => handleEditClick(hotel._id)}>Modifier</button>
                   </div>
                 </div>
               ))}
