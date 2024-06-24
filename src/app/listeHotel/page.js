@@ -94,7 +94,7 @@ export default function ListeHotel() {
               <span className={styles.onlineIndicator}></span>
             </div>
             <div className={styles.logout}>
-            <Image src="/log-out.svg" alt="Logout icon" width={24} height={24} />          
+            <Image src="/log-out.svg" alt="Logout icon" width={24} height={24} />
             </div>
           </div>
         </div>
