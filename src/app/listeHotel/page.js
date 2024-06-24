@@ -86,15 +86,15 @@ export default function ListeHotel() {
               <input type="text" placeholder="Recherche" />
             </div>
             <div className={styles.notification}>
-              <img src="/notification.svg" alt="Notification icon" />
+             <Image src="/notification.svg" alt="Notification icon" width={24} height={24} />
               <span className={styles.notificationCount}>3</span>
             </div>
             <div className={styles.profile}>
-              <img src="/wally.jpg" alt="wally" />
+            <Image src="/wally.jpg" alt="wally" width={32} height={32} className={styles.profileImage} />      
               <span className={styles.onlineIndicator}></span>
             </div>
             <div className={styles.logout}>
-              <img src="/log-out.svg" alt="Logout icon" />
+            <Image src="/log-out.svg" alt="Logout icon" width={24} height={24} />          
             </div>
           </div>
         </div>

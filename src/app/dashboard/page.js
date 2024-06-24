@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import styles from '../../app/Home.module.css';
 
-
 export default function Acceuil() {
   return (
     <div className={styles.containerDashboard}>
       <div className={styles.sidebar}>
         <div className={styles.log}>
-          <Image src="/logo.svg" alt="logo" width={30} height={30} className={styles.logo}/>
+          <Image src="/logo.svg" alt="logo" width={30} height={30} className={styles.logo} />
           <Image src="/titree.svg" alt="titree" width={150} height={150} />
         </div>
         <p>Principal</p>
@@ -28,88 +27,65 @@ export default function Acceuil() {
               <input type="text" placeholder="Recherche" />
             </div>
             <div className={styles.notificationIcon}>
-              <img src="/notification.svg" alt="Notification icon" />
+              <Image src="/notification.svg" alt="Notification icon" width={24} height={24} />
               <span className={styles.notificationCount}>3</span>
             </div>
             <div className={styles.profile}>
-              <img src="/wally.jpg" alt="wally" />
+              <Image src="/wally.jpg" alt="wally" width={32} height={32} className={styles.profileImage} />
               <span className={styles.onlineIndicator}></span>
             </div>
             <div className={styles.logout}>
-              <img src="/log-out.svg" alt="Logout icon" />
+              <Image src="/log-out.svg" alt="Logout icon" width={24} height={24} />
             </div>
           </div>
         </div>
         <div className={styles.content}>
-            <p className={styles.bienvenue}>Bienvenue sur RED Product</p>
-            <p className={styles.lorem}>Lorem ipsum dolor sit amet consectetur</p>
-          </div>
+          <p className={styles.bienvenue}>Bienvenue sur RED Product</p>
+          <p className={styles.lorem}>Lorem ipsum dolor sit amet consectetur</p>
+        </div>
         <div className={styles.contentWrapper}>
-          
           <div className={styles.analytics}>
             <div className={styles.cardGrid}>
-
-          <div className={styles.card}>
-            <div>
-              <Image src="/span1.svg" alt="Hotel icon" width={45} height={45} />
-            </div>
-            <div>
-              <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
-            </div>
-          </div>
-
-            <div className={styles.card}>
-            <div>
-              <Image src="/span2.svg" alt="Hotel icon" width={45} height={45} />
-            </div>
-            <div>
-              <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
-            </div>
-          </div>
-
-            <div className={styles.card}>
-            <div>
-              <Image src="/span3.svg" alt="Hotel icon" width={45} height={45} />
-            </div>
-            <div>
-              <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
-            </div>
-
-          </div>
-            <div className={styles.card}>
-            <div>
-              <Image src="/span4.svg" alt="Hotel icon" width={45} height={45} />
-            </div>
-            <div>
-              <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
-            </div>
-          </div>
-
-            <div className={styles.card}>
-            <div>
-              <Image src="/span5.svg" alt="Hotel icon" width={45} height={45} />
-            </div>
-            <div>
-              <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
-            </div>
-          </div>
-
-            <div className={styles.card}>
-            <div>
-              <Image src="/span6.svg" alt="Hotel icon" width={45} height={45} />
-            </div>
-            <div>
-              <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
-            </div>
-          </div>
-
-          
-
+              <div className={styles.card}>
+                <Image src="/span1.svg" alt="Hotel icon" width={45} height={45} />
+                <div>
+                  <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
+                </div>
+              </div>
+              <div className={styles.card}>
+                <Image src="/span2.svg" alt="Hotel icon" width={45} height={45} />
+                <div>
+                  <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
+                </div>
+              </div>
+              <div className={styles.card}>
+                <Image src="/span3.svg" alt="Hotel icon" width={45} height={45} />
+                <div>
+                  <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
+                </div>
+              </div>
+              <div className={styles.card}>
+                <Image src="/span4.svg" alt="Hotel icon" width={45} height={45} />
+                <div>
+                  <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
+                </div>
+              </div>
+              <div className={styles.card}>
+                <Image src="/span5.svg" alt="Hotel icon" width={45} height={45} />
+                <div>
+                  <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
+                </div>
+              </div>
+              <div className={styles.card}>
+                <Image src="/span6.svg" alt="Hotel icon" width={45} height={45} />
+                <div>
+                  <p>125 Formulaires <br /> Je ne sais pas quoi mettre.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    
-  )
+    </div>
+  );
 }
